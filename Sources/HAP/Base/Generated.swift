@@ -2,9 +2,9 @@
 // framework definitions. Don't make changes to this file directly.
 // Update this file using the `hap-update` tool.
 //
-// Generated on:              10 February 2020
-// HomeKit framework version: 827
-// macOS:                     Version 10.15.3 (Build 19D76)
+// Generated on:              23 May 2020
+// HomeKit framework version: 838
+// macOS:                     Version 10.15.4 (Build 19E287)
 
 import Foundation
 
@@ -41,6 +41,7 @@ public enum AccessoryType: String, Codable {
 	case television = "31"
 	case targetController = "32"
 	case wiFiRouter = "33"
+	case audioReceiver = "34"
 }
 
 public extension ServiceType {
@@ -2501,7 +2502,7 @@ public extension AnyCharacteristic {
 		format: CharacteristicFormat? = .uint8,
 		unit: CharacteristicUnit? = nil,
 		maxLength: Int? = nil,
-		maxValue: Double? = 3,
+		maxValue: Double? = 5,
 		minValue: Double? = 0,
 		minStep: Double? = 1
 	) -> AnyCharacteristic {
@@ -5576,7 +5577,7 @@ public class PredefinedCharacteristic {
 		format: CharacteristicFormat? = .uint8,
 		unit: CharacteristicUnit? = nil,
 		maxLength: Int? = nil,
-		maxValue: Double? = 3,
+		maxValue: Double? = 5,
 		minValue: Double? = 0,
 		minStep: Double? = 1
 	) -> GenericCharacteristic<UInt8> {

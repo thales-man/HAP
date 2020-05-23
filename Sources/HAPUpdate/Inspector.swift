@@ -2,6 +2,7 @@
 import Foundation
 
 extension String {
+    
     func lowercasedFirstLetter() -> String {
         return prefix(1).lowercased() + dropFirst()
     }
@@ -9,6 +10,7 @@ extension String {
     mutating func lowercasedFirstLetter() {
         self = self.lowercasedFirstLetter()
     }
+    
     func uppercasedFirstLetter() -> String {
         let string = self.replacingOccurrences(of: "`", with: "")
         return string.prefix(1).uppercased() + string.dropFirst()
