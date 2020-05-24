@@ -305,7 +305,7 @@ public class Inspector {
 
         var blacklistedCharacteristics = blacklistCharacteristics
         // Don't remove characteristics from app blacklist
-        //blacklistedCharacteristics.append(contentsOf: blacklistAppCharacteristics)
+        blacklistedCharacteristics.append(contentsOf: blacklistAppCharacteristics)
 
         print("Writing to \(outputPath)")
 
@@ -355,7 +355,7 @@ public class Inspector {
 
         var categoryInfo = [CategoryInfo]()
 
-        for (name, dict) in categories {
+        for (_, dict) in categories {
             if let title = dict["DefaultDescription"] as? String,
                 let id = dict["Identifier"] as? Int {
                 categoryInfo.append(CategoryInfo(name: title, id: id))
@@ -587,7 +587,7 @@ public class Inspector {
 
         var enums = [(enumName: String, type: String, newValues: NSDictionary, info: CharacteristicInfo)]()
 
-        for (name, dict) in characteristicConstants {
+        for (_, dict) in characteristicConstants {
             let rName = dict["Read"] as? String
             let wName = dict["Write"] as? String
             let rwName = dict["ReadWrite"] as? String
@@ -636,11 +636,11 @@ public class Inspector {
 
         // Add any default enums which are not defined in the HAP config
         for defaultType in Inspector.defaultTypes {
-            if let enumInfo = enums.first(where: { $0.info.hkname == defaultType.characteristic }) {
+            if enums.first(where: { $0.info.hkname == defaultType.characteristic }) != nil {
                 // Already defined
             } else if let info = characteristicInfo.first(where: { $0.hkname == defaultType.characteristic }) {
                 print("Using predefined enum for '\(defaultType.enumName)'")
-                var valuedict = NSMutableDictionary()
+                let valuedict = NSMutableDictionary()
                 defaultType.values.map({ valuedict[$0.0] = $0.1 })
                 enums.append((enumName: defaultType.enumName, type: defaultType.baseType, newValues: valuedict, info: info))
             }
@@ -655,7 +655,7 @@ public class Inspector {
                 // The HAP config definition couldn't be written, likely because both key and values are digits
                 // Fallback to a default definition if it exists
                 print("Use predefined enum cases for '\(enumName)'")
-                var valuedict = NSMutableDictionary()
+                let valuedict = NSMutableDictionary()
                 defaultType.values.map({ valuedict[$0.0] = $0.1 })
                 writeEnumeration(enumName: defaultType.enumName, type: defaultType.baseType, values: valuedict, max: info.maxValue)
                 enumeratedCharacteristics.insert(info.hkname)
