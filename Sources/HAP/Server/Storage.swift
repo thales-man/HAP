@@ -38,6 +38,10 @@ public class FileStorage: Storage {
         }
         fclose(fd)
     }
+
+    func exists() -> Bool {
+        return fopen(self.filename, "r") != nil
+    }
 }
 
 public class MemoryStorage: Storage {
