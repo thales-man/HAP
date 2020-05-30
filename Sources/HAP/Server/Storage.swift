@@ -39,7 +39,7 @@ public class FileStorage: Storage {
         fclose(fd)
     }
 
-    func exists() -> Bool {
+    public func exists() -> Bool {
         return fopen(self.filename, "r") != nil
     }
 }
