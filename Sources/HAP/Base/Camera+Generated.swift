@@ -1,3 +1,8 @@
+//  Camera+Generated.swift
+//  HAP
+//
+//  Created by colin on 26/04/2020.
+//  Copyright © 2020 the striped lawn company. All rights reserved.
 import Foundation
 
 public extension ServiceType {

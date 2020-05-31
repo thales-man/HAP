@@ -17,7 +17,8 @@ func root(device: Device) -> Responder {
         ("/identify", protect(device, identify(device: device))),
         ("/accessories", protect(device, accessories(device: device))),
         ("/characteristics", protect(device, characteristics(device: device))),
-        ("/pairings", protect(device, pairings(device: device)))
+        ("/pairings", protect(device, pairings(device: device))),
+        ("/resource", protect(device, resource(device: device)))
     ]))
 }
 
