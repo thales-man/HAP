@@ -26,7 +26,7 @@ func resource(device: Device) -> Responder {
         }
 
         // TODO: authorization
-        logger.info("received body: \(body)")
+        logger.info("received body: \(String(decoding: body, as: UTF8.self))")
 //        let pairing = device.controllerHandler?.getPairingForChannel(context.channel)
 //        guard pairing?.role == .admin else {
 //            logger.warning("Permission denied (non-admin) to update pairing data: \(data), method: \(method)")
