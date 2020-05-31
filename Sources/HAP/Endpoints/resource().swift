@@ -17,8 +17,8 @@ func resource(device: Device) -> Responder {
             return HTTPResponse(status: .methodNotAllowed)
         }
         guard
-            let body = request.body.data,
-            let data: PairTagTLV8 = try? decode(body)
+            let body = request.body.data //,
+//            let data: PairTagTLV8 = try? decode(body)
 //            data[.state]?[0] == PairStep.request.rawValue,
 //            let method = data[.pairingMethod].flatMap({ PairingMethod(rawValue: $0[0]) })
             else {
@@ -26,7 +26,7 @@ func resource(device: Device) -> Responder {
         }
 
         // TODO: authorization
-        logger.info("received (data): \(data), body: \(body)")
+        logger.info("received body: \(body)")
 //        let pairing = device.controllerHandler?.getPairingForChannel(context.channel)
 //        guard pairing?.role == .admin else {
 //            logger.warning("Permission denied (non-admin) to update pairing data: \(data), method: \(method)")
