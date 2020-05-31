@@ -57,12 +57,12 @@ extension Service {
     
     open class CameraStreamManagementBase: Service {
         // Required Characteristics
-        public let selectedStreamConfiguration: GenericCharacteristic<Data>
-        public let setupEndpoint: GenericCharacteristic<Data>
-        public let streamingStatus: GenericCharacteristic<Data>
-        public let supportedAudioStreamConfiguration: GenericCharacteristic<Data>
-        public let supportedRtpConfiguration: GenericCharacteristic<Data>
-        public let supportedVideoStreamConfiguration: GenericCharacteristic<Data>
+        public let selectedStreamConfiguration: GenericCharacteristic<String>
+        public let setupEndpoint: GenericCharacteristic<String>
+        public let streamingStatus: GenericCharacteristic<String>
+        public let supportedAudioStreamConfiguration: GenericCharacteristic<String>
+        public let supportedRtpConfiguration: GenericCharacteristic<String>
+        public let supportedVideoStreamConfiguration: GenericCharacteristic<String>
         
         // Optional Characteristics
         public let active: GenericCharacteristic<Enums.Active>?
@@ -222,7 +222,8 @@ public extension AnyCharacteristic {
     }
     
     static func selectedCameraRecordingConfiguration(
-        _ value: Data = Data(),
+//        _ value: Data = Data(),
+        _ value: String = "",
         permissions: [CharacteristicPermission] = [.read, .write, .events],
         description: String? = "Selected Camera Recording Configuration",
         format: CharacteristicFormat? = .tlv8,
@@ -246,7 +247,8 @@ public extension AnyCharacteristic {
     }
     
     static func selectedStreamConfiguration(
-        _ value: Data = Data(),
+//        _ value: Data = Data(),
+        _ value: String = "",
         permissions: [CharacteristicPermission] = [.read, .write],
         description: String? = "Selected Stream Configuration",
         format: CharacteristicFormat? = .tlv8,
@@ -270,7 +272,8 @@ public extension AnyCharacteristic {
     }
     
     static func setupEndpoint(
-        _ value: Data = Data(),
+//        _ value: Data = Data(),
+        _ value: String = "",
         permissions: [CharacteristicPermission] = [.read, .write],
         description: String? = "Setup Endpoint",
         format: CharacteristicFormat? = .tlv8,
@@ -294,7 +297,8 @@ public extension AnyCharacteristic {
     }
     
     static func streamingStatus(
-        _ value: Data = Data(),
+//        _ value: Data = Data(),
+        _ value: String = "",
         permissions: [CharacteristicPermission] = [.read, .events],
         description: String? = "Streaming Status",
         format: CharacteristicFormat? = .tlv8,
@@ -319,7 +323,8 @@ public extension AnyCharacteristic {
     
     
     static func supportedRtpConfiguration(
-        _ value: Data = Data(),
+//        _ value: Data = Data(),
+        _ value: String = "",
         permissions: [CharacteristicPermission] = [.read],
         description: String? = "Supported RTP Configuration",
         format: CharacteristicFormat? = .tlv8,
@@ -343,7 +348,8 @@ public extension AnyCharacteristic {
     }
     
     static func supportedVideoStreamConfiguration(
-        _ value: Data = Data(),
+//        _ value: Data = Data(),
+        _ value: String = "",
         permissions: [CharacteristicPermission] = [.read],
         description: String? = "Supported Video Stream Configuration",
         format: CharacteristicFormat? = .tlv8,
@@ -514,7 +520,8 @@ extension PredefinedCharacteristic {
     }
     
     static func selectedCameraRecordingConfiguration(
-        _ value: Data = Data(),
+//        _ value: Data = Data(),
+        _ value: String = "",
         permissions: [CharacteristicPermission] = [.read, .write, .events],
         description: String? = "Selected Camera Recording Configuration",
         format: CharacteristicFormat? = .tlv8,
@@ -523,8 +530,8 @@ extension PredefinedCharacteristic {
         maxValue: Double? = nil,
         minValue: Double? = nil,
         minStep: Double? = nil
-    ) -> GenericCharacteristic<Data> {
-        return GenericCharacteristic<Data>(
+    ) -> GenericCharacteristic<String> {
+        return GenericCharacteristic<String>(
             type: .selectedCameraRecordingConfiguration,
             value: value,
             permissions: permissions,
@@ -538,7 +545,8 @@ extension PredefinedCharacteristic {
     }
     
     static func selectedStreamConfiguration(
-        _ value: Data = Data(),
+//        _ value: Data = Data(),
+        _ value: String = "",
         permissions: [CharacteristicPermission] = [.read, .write],
         description: String? = "Selected Stream Configuration",
         format: CharacteristicFormat? = .tlv8,
@@ -547,8 +555,8 @@ extension PredefinedCharacteristic {
         maxValue: Double? = nil,
         minValue: Double? = nil,
         minStep: Double? = nil
-    ) -> GenericCharacteristic<Data> {
-        return GenericCharacteristic<Data>(
+    ) -> GenericCharacteristic<String> {
+        return GenericCharacteristic<String>(
             type: .selectedStreamConfiguration,
             value: value,
             permissions: permissions,
@@ -562,7 +570,8 @@ extension PredefinedCharacteristic {
     }
     
     static func setupEndpoint(
-        _ value: Data = Data(),
+//        _ value: Data = Data(),
+        _ value: String = "",
         permissions: [CharacteristicPermission] = [.read, .write],
         description: String? = "Setup Endpoint",
         format: CharacteristicFormat? = .tlv8,
@@ -571,8 +580,8 @@ extension PredefinedCharacteristic {
         maxValue: Double? = nil,
         minValue: Double? = nil,
         minStep: Double? = nil
-    ) -> GenericCharacteristic<Data> {
-        return GenericCharacteristic<Data>(
+    ) -> GenericCharacteristic<String> {
+        return GenericCharacteristic<String>(
             type: .setupEndpoint,
             value: value,
             permissions: permissions,
@@ -586,7 +595,8 @@ extension PredefinedCharacteristic {
     }
     
     static func streamingStatus(
-        _ value: Data = Data(),
+//        _ value: Data = Data(),
+        _ value: String = "",
         permissions: [CharacteristicPermission] = [.read, .events],
         description: String? = "Streaming Status",
         format: CharacteristicFormat? = .tlv8,
@@ -595,8 +605,8 @@ extension PredefinedCharacteristic {
         maxValue: Double? = nil,
         minValue: Double? = nil,
         minStep: Double? = nil
-    ) -> GenericCharacteristic<Data> {
-        return GenericCharacteristic<Data>(
+    ) -> GenericCharacteristic<String> {
+        return GenericCharacteristic<String>(
             type: .streamingStatus,
             value: value,
             permissions: permissions,
@@ -610,7 +620,8 @@ extension PredefinedCharacteristic {
     }
     
     static func supportedAudioStreamConfiguration(
-        _ value: Data = Data(),
+//        _ value: Data = Data(),
+        _ value: String = "",
         permissions: [CharacteristicPermission] = [.read],
         description: String? = "Supported Audio Stream Configuration",
         format: CharacteristicFormat? = .tlv8,
@@ -619,8 +630,8 @@ extension PredefinedCharacteristic {
         maxValue: Double? = nil,
         minValue: Double? = nil,
         minStep: Double? = nil
-    ) -> GenericCharacteristic<Data> {
-        return GenericCharacteristic<Data>(
+    ) -> GenericCharacteristic<String> {
+        return GenericCharacteristic<String>(
             type: .supportedAudioStreamConfiguration,
             value: value,
             permissions: permissions,
@@ -634,7 +645,8 @@ extension PredefinedCharacteristic {
     }
     
     static func supportedRtpConfiguration(
-        _ value: Data = Data(),
+//        _ value: Data = Data(),
+        _ value: String = "",
         permissions: [CharacteristicPermission] = [.read],
         description: String? = "Supported RTP Configuration",
         format: CharacteristicFormat? = .tlv8,
@@ -643,8 +655,8 @@ extension PredefinedCharacteristic {
         maxValue: Double? = nil,
         minValue: Double? = nil,
         minStep: Double? = nil
-    ) -> GenericCharacteristic<Data> {
-        return GenericCharacteristic<Data>(
+    ) -> GenericCharacteristic<String> {
+        return GenericCharacteristic<String>(
             type: .supportedRtpConfiguration,
             value: value,
             permissions: permissions,
@@ -658,7 +670,8 @@ extension PredefinedCharacteristic {
     }
     
     static func supportedVideoStreamConfiguration(
-        _ value: Data = Data(),
+//        _ value: Data = Data(),
+        _ value: String = "",
         permissions: [CharacteristicPermission] = [.read],
         description: String? = "Supported Video Stream Configuration",
         format: CharacteristicFormat? = .tlv8,
@@ -667,8 +680,8 @@ extension PredefinedCharacteristic {
         maxValue: Double? = nil,
         minValue: Double? = nil,
         minStep: Double? = nil
-    ) -> GenericCharacteristic<Data> {
-        return GenericCharacteristic<Data>(
+    ) -> GenericCharacteristic<String> {
+        return GenericCharacteristic<String>(
             type: .supportedVideoStreamConfiguration,
             value: value,
             permissions: permissions,
