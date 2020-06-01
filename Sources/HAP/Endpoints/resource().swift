@@ -31,7 +31,7 @@ func resource(device: Device, request: HTTPRequest) -> HTTPResponse {
 
     guard
         let body = request.body.data,
-        let accessory = device.accessories.first(where: { $0 !== device }) // <= only one, the camera
+        let accessory = device.accessories.first
         else {
             return .badRequest
     }
