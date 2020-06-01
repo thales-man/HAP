@@ -263,7 +263,6 @@ class ControllerHandler: ChannelDuplexHandler {
             // This will trigger `channelInactive(context:)`.
             channel.close(promise: nil)
         }
-
     }
 }
 
