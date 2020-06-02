@@ -2,10 +2,12 @@
 import Foundation
 
 enum Protocol {
+    
     struct GetQuery {
         enum DecodeError: Error {
             case invalidPath
         }
+        
         struct Path {
             var aid: InstanceID
             var iid: InstanceID
@@ -28,6 +30,7 @@ enum Protocol {
         var perms: Bool
         var type: Bool
         var ev: Bool
+        
         init(queryItems: [URLQueryItem]) throws {
             guard let queryIds = queryItems.first(where: { $0.name == "id" })?.value else {
                 throw DecodeError.invalidPath
